@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>CyberSphere</title>
+    <style>
+        body { margin: 0; }
+        #model-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <header class="header">
+            <span class="roboto-regular">CyberSphere</span>
+            <nav class="nav">
+                <a href="#home" class="roboto-regular">Home</a>
+                <a href="#most" class="roboto-regular">Mostruário</a>
+                <a href="#about" class="roboto-regular">Sobre nós</a>
+            </nav>
+        </header>
+        <div id="home" class="wrapperContent">
+            <div class="content">
+                <div class="homePage">
+                    <span class="roboto-bold">
+                        Novos desafios
+                        precisam de 
+                        novos equipamentos
+                    </span>
+                    <p class="roboto-light">
+                        Compre seus equipamentos 
+                        com o menor preço de mercado, 
+                        frete grátis e muito mais
+                    </p>
+                </div>
+                <div class="othersContainer">
+                    <div class="imgHappy">
+                        <img
+                            src="homePagePhoto.jpg"  />
+                    </div>
+                    <div class="toProducts">
+                        <img
+                            width="100px"
+                            height="auto" 
+                            src="seta-diagonal.png"  />
+                    </div>
+                </div>
+                <div id="logo" class="logoContainer"></div>
+            </div>
+        </div>
+
+        <div id="most" class="mostWrapper">
+            <div id="most" class="most">
+                <h3 class="roboto-regular">Produtos mais relevantes:</h3>
+                <hr width="100%" >
+                <div class="productList">
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div class="aboutWrapper">
+            <div id="about" class="about">
+                <div class="aboutDesc">
+                    <h3 class="roboto-light" >Sobre nós</h3>
+                    <span class="roboto-black">
+                        Procuramos acima de tudo oferecer o que há de melhor,
+                        com os melhores fornecedores. 
+                    </span>
+                    <p class="roboto-light">
+                        A CyberSphere é uma empresa líder no mercado de tecnologia e produtos para computador, com sua matriz localizada na cidade de São Paulo. Com uma presença nacional consolidada, a empresa expandiu suas operações para outras regiões do Brasil, estabelecendo filiais estrategicamente localizadas na Bahia, em Minas Gerais e no Paraná. Além das lojas físicas, a nossa empresa também vende produtos online para todo o Brasil.
+                        A missão da CyberSphere é oferecer soluções tecnológicas inovadoras e produtos de alta qualidade para atender às necessidades de um mercado em constante evolução. A empresa preza por um atendimento excepcional e uma experiência de compra satisfatória, com foco na satisfação total do cliente.
+                    </p>
+                </div>
+                <div class="aboutImg">
+                    <img
+                        src="gamer.jpg"  />
+                </div>
+                <div class="aboutData">
+                    <div class="dataItem">
+                        <span class="roboto-bold">6</span>
+                        <p class="roboto-light">Anos de experiência.</p>
+                    </div>
+                    <div class="dataItem">
+                        <span class="roboto-bold">20 </span>
+                        <p class="roboto-light">milhões de clientes.</p>
+                    </div>
+                    <div class="dataItem">
+                        <span class="roboto-bold">9.9</span>
+                        <p class="roboto-light">no reclame aqui.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        const products = [
+            {
+                img: "rtx.jpeg",
+                name: "Placa de Vídeo Asus Dual NVIDIA GeForce RTX 4060 Ti OC, 8GB, GDDR6, DLSS Ray Tracing",
+                price: "R$ 2.699,99",
+                cardType: "Em 10 vezes de 270,99 sem juros"
+            },
+            {
+                img: "controleps5.jpeg",
+                name: "Controle Sony PlayStation 5 DualSense Branco",
+                price: "R$ 399,90",
+                cardType: "Em 5 vezes de 79,90 sem juros "
+            },
+            {
+                img: "fonteevga.jpeg",
+                name: "Fonte EVGA 500 BV, 500W, 80 Plus Bronze",
+                price: "R$ 300,00",
+                cardType: "Em 10 vezes de 29,99 sem juros"
+            },
+            {
+                img: "gabinete.jpeg",
+                name: "Gabinete Gamer Rise Mode Galaxy Glass, Mid Tower, Lateral e Frontal em Vidro Temperado, Preto",
+                price: "R$ 499,90",
+                cardType: "Em 10 vezes de 49,99 sem juros"
+            },
+            {
+                img: "hd.jpeg",
+                name: "HD Seagate 1TB Barracuda, 7200 RPM",
+                price: "R$ 249,90",
+                cardType: "Em 7 vezes de 35,90 sem juros"
+            },
+            {
+                img: "g731.jpeg",
+                name: "Headset Gamer Sem Fio Logitech G733 7.1",
+                price: "R$ 879,50",
+                cardType: "Em 10 vezes de 88,99 sem juros"
+            },
+            {
+                img: "ram.jpeg",
+                name: "Memória RAM Fury Beast Rgb 8gb Ddr4 Cl16 Dimm Kingston",
+                price: "R$ 185,00",
+                cardType: "Em 5 vezes de 36,99 sem juros"
+            },
+            {
+                img: "monitor.jpeg",
+                name: "Monitor Gamer AOC Agon 31.5' LED, Curvo, 165 Hz, Full HD, 1ms, FreeSync Premium",
+                price: " R$ 1.650,00",
+                cardType: "Em 10 vezes de 165,00 sem juros"
+            },
+            {
+                img: "mouse.jpeg",
+                name: "Mouse Gamer Sem Fio Logitech G502 X PLUS LIGHTSPEED com RGB LIGHTSYNC Branco",
+                price: "R$ 899,99",
+                cardType: "Em 10 vezes de 89,99 sem juros"
+            },
+            {
+                img: "mousepad.jpeg",
+                name: "Mouse Pad Fortrek Speed MPG103 (800x300mm) Azul",
+                price: "R$ 27,90 ",
+                cardType: "Em 2 vezes de 13,95 sem juros"
+            },
+            {
+                img: "placamae.jpeg",
+                name: "Placa Mãe Gigabyte B450M DS3H V2 (AM4/DDR4 3200MHz/HDMI/DisplayPort/M.2/USB 3.2)",
+                price: "R$ 549,99",
+                cardType: "Em 10 vezes de 55,99 sem juros"
+            },
+            {
+                img: "ssd.jpeg",
+                name: "SSD M2 240GB, Kingston A400, M.2 2280 - SA400M8/240G",
+                price: "R$ 250,00",
+                cardType: "Em 5 vezes de 49,99 sem juros"
+            },
+            {
+                img: "ssd1tb.jpeg",
+                name: "SSD 1TB SANDISK ULTRA III 3D NAND SATA 3",
+                price: "R$ 579,90",
+                cardType: "Em 10 vezes de 57,99 sem juros"
+            },
+            {
+                img: "teclado.jpeg",
+                name: "Teclado Mecânico Gamer, KNUP, Switch Blue, Led Rgb 7 Cores, 12 Funções Anti Ghosting",
+                price: "R$ 149,99",
+                cardType: "Em 2 vezes de 75,00 sem juros"
+            },
+            {
+                img: "aircooler.jpeg",
+                name: "Air Cooler Processador Pc Cpu Rgb P/ Intel E Amd Universal",
+                price: "R$ 99,90",
+                cardType: "Em 2 vezes de 49,99 sem juros"
+            },
+        ];
+
+        const productList = document.querySelector('.productList');
+
+        // Itera sobre os produtos e cria os elementos HTML
+        products.forEach((product, i) => {
+            const productContainer = document.createElement('div');
+            productContainer.className = 'productContainer';
+
+            productContainer.onclick = () => {
+                openNewPage(i)
+            }
+
+            const productImg = document.createElement('img');
+            productImg.className = 'productImg';
+            productImg.src = product.img;
+            productImg.alt = product.name;
+
+            const productInfo = document.createElement('div');
+            productInfo.className = 'productInfo';
+
+            const priceSpan = document.createElement('span');
+            priceSpan.className = 'roboto-bold';
+            priceSpan.innerHTML = `${product.price}`;
+
+            const priceCardSpan = document.createElement('h4');
+            priceCardSpan.className = 'roboto-regular';
+            priceCardSpan.innerHTML = `${product.cardType}`;
+
+            const productDescription = document.createElement('p');
+            productDescription.className = 'roboto-regular';
+            productDescription.textContent = product.name;
+
+            // const classificationContainer = document.createElement('div');
+            // classificationContainer.className = 'classificationContainer';
+
+            productInfo.appendChild(priceSpan);
+            productInfo.appendChild(priceCardSpan);
+            productInfo.appendChild(productDescription);
+            // productInfo.appendChild(classificationContainer);
+
+            productContainer.appendChild(productImg);
+            productContainer.appendChild(productInfo);
+
+            productList.appendChild(productContainer);
+        });
+
+
+    </script>
+    <script>
+        function openNewPage(productId) {
+            window.location.href = 'product.html?param=' + productId;
+        }
+    </script>
+    <script>
+        // Seleciona a div onde o canvas será inserido
+        const container = document.getElementById('logo');
+
+        // Criação da cena, câmera e renderizador
+        container.style.borderRadius = '30px'
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        // Adicionando uma luz
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+
+        // Variável para armazenar o modelo carregado
+        let model;
+
+        // Carregando o arquivo .glb
+        const loader = new THREE.GLTFLoader();
+        loader.load('logo.glb', function (gltf) {
+            model = gltf.scene;
+            model.position.set(0, 0, 0); // Certifique-se de que o modelo esteja centrado
+            scene.add(model);
+            animate();
+        }, undefined, function (error) {
+            console.error(error);
+        });
+
+
+        // Posicionando a câmera
+        camera.position.z = 50;
+        camera.position.y = 15; // Ajusta a posição vertical da câmera (mova para cima)
+
+        // Função de animação
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rodando o modelo se estiver carregado
+            if (model) {
+                model.rotation.y += 0.01; // Ajuste a velocidade da rotação conforme necessário
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Ajustando a renderização quando a janela é redimensionada
+        window.addEventListener('resize', function () {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+        </script>
+</body>
+</html>
