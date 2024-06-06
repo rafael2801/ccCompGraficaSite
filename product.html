@@ -40,7 +40,8 @@
         </header>
         <div class="productContent">
             <div  class="imgProduct">
-                <img id="img" src="" alt="rtc">
+                <img  id="img" src="" alt="rtc">
+                <img  id="imgVetor" src="" alt="">
             </div>
             <div class="information">
                 <span id="name" class="roboto-regular title">
@@ -70,6 +71,7 @@
         const products = [
             {
                 img: "rtx.jpeg",
+                imgVetor: "rtx.svg",
                 name: "Placa de Vídeo Asus Dual NVIDIA GeForce RTX 4060 Ti OC, 8GB, GDDR6, DLSS Ray Tracing",
                 price: "R$ 2.699,99",
                 cardType: "Em 10 vezes de 270,99 sem juros",
@@ -86,6 +88,7 @@
             },
             {
                 img: "controleps5.jpeg",
+                imgVetor: "controle.svg",
                 name: "Controle Sony PlayStation 5 DualSense Branco",
                 price: "R$ 399,90",
                 cardType: "Em 5 vezes de 79,90 sem juros ",
@@ -102,6 +105,7 @@
             },
             {
                 img: "fonteevga.jpeg",
+                imgVetor: "fonte.svg",
                 name: "Fonte EVGA 500 BV, 500W, 80 Plus Bronze",
                 price: "R$ 300,00",
                 cardType: "Em 10 vezes de 29,99 sem juros",
@@ -117,6 +121,7 @@
             },
             {
                 img: "gabinete.jpeg",
+                imgVetor: "gabinete.svg",
                 name: "Gabinete Gamer Rise Mode Galaxy Glass, Mid Tower, Lateral e Frontal em Vidro Temperado, Preto",
                 price: "R$ 499,90",
                 cardType: "Em 10 vezes de 49,99 sem juros",
@@ -130,6 +135,7 @@
             },
             {
                 img: "hd.jpeg",
+                imgVetor: "hd.svg",
                 name: "HD Seagate 1TB Barracuda, 7200 RPM",
                 price: "R$ 249,90",
                 cardType: "Em 7 vezes de 35,90 sem juros",
@@ -146,6 +152,7 @@
             },
             {
                 img: "g731.jpeg",
+                imgVetor: "headset.svg",
                 name: "Headset Gamer Sem Fio Logitech G733 7.1",
                 price: "R$ 879,50",
                 cardType: "Em 10 vezes de 88,99 sem juros",
@@ -163,6 +170,7 @@
             },
             {
                 img: "ram.jpeg",
+                imgVetor: "ram.svg",
                 name: "Memória RAM Fury Beast Rgb 8gb Ddr4 Cl16 Dimm Kingston",
                 price: "R$ 185,00",
                 cardType: "Em 5 vezes de 36,99 sem juros",
@@ -172,6 +180,7 @@
             },
             {
                 img: "monitor.jpeg",
+                imgVetor: "monitor.svg",
                 name: "Monitor Gamer AOC Agon 31.5' LED, Curvo, 165 Hz, Full HD, 1ms, FreeSync Premium",
                 price: " R$ 1.650,00",
                 cardType: "Em 10 vezes de 165,00 sem juros",
@@ -190,6 +199,7 @@
             },
             {
                 img: "mouse.jpeg",
+                imgVetor: "mouse.svg",
                 name: "Mouse Gamer Sem Fio Logitech G502 X PLUS LIGHTSPEED com RGB LIGHTSYNC Branco",
                 price: "R$ 899,99",
                 cardType: "Em 10 vezes de 89,99 sem juros",
@@ -206,6 +216,7 @@
             },
             {
                 img: "mousepad.jpeg",
+                imgVetor: "mousepad.svg",
                 name: "Mouse Pad Fortrek Speed MPG103 (800x300mm) Azul",
                 price: "R$ 27,90 ",
                 cardType: "Em 2 vezes de 13,95 sem juros",
@@ -221,6 +232,7 @@
             },
             {
                 img: "placamae.jpeg",
+                imgVetor: "placamae.svg",
                 name: "Placa Mãe Gigabyte B450M DS3H V2 (AM4/DDR4 3200MHz/HDMI/DisplayPort/M.2/USB 3.2)",
                 price: "R$ 549,99",
                 cardType: "Em 10 vezes de 55,99 sem juros",
@@ -235,6 +247,7 @@
             },
             {
                 img: "ssd.jpeg",
+                imgVetor: "ssd.svg",
                 name: "SSD M2 240GB, Kingston A400, M.2 2280 - SA400M8/240G",
                 price: "R$ 250,00",
                 cardType: "Em 5 vezes de 49,99 sem juros",
@@ -250,6 +263,7 @@
             },
             {
                 img: "ssd1tb.jpeg",
+                imgVetor: "ssd1tb.svg",
                 name: "SSD 1TB SANDISK ULTRA III 3D NAND SATA 3",
                 price: "R$ 579,90",
                 cardType: "Em 10 vezes de 57,99 sem juros",
@@ -267,6 +281,7 @@
             },
             {
                 img: "teclado.jpeg",
+                imgVetor: "teclado.svg",
                 name: "Teclado Mecânico Gamer, KNUP, Switch Blue, Led Rgb 7 Cores, 12 Funções Anti Ghosting",
                 price: "R$ 149,99",
                 cardType: "Em 2 vezes de 75,00 sem juros",
@@ -281,6 +296,7 @@
             },
             {
                 img: "aircooler.jpeg",
+                imgVetor: "cooler.svg",
                 name: "Air Cooler Processador Pc Cpu Rgb P/ Intel E Amd Universal",
                 price: "R$ 99,90",
                 cardType: "Em 2 vezes de 49,99 sem juros",
@@ -341,6 +357,28 @@
 
         const imgElement = document.getElementById('img');
         imgElement.src = product.img;
+
+        const imgVetorElement = document.getElementById('imgVetor');
+        imgVetorElement.src = product.imgVetor;
+
+        function switchImages() {
+            const imgElement = document.getElementById('img');
+            const imgVetorElement = document.getElementById('imgVetor');
+            let showImage1 = true;
+
+            setInterval(() => {
+                if (showImage1) {
+                    imgElement.classList.add('show');
+                    imgVetorElement.classList.remove('show');
+                } else {
+                    imgElement.classList.remove('show');
+                    imgVetorElement.classList.add('show');
+                }
+                showImage1 = !showImage1;
+            }, 3000); // 2000 milissegundos = 2 segundos
+        }
+
+        // switchImages()
 
     </script>
 </body>

@@ -56,7 +56,9 @@
                             src="seta-diagonal.png"  />
                     </div>
                 </div>
-                <div id="logo" class="logoContainer"></div>
+                <div id="logo" class="logoContainer">
+                    <img src="logo.png" width="90%" height="100%" alt="">
+                </div>
             </div>
         </div>
 
@@ -260,58 +262,59 @@
     </script>
     <script>
         // Seleciona a div onde o canvas será inserido
-        const container = document.getElementById('logo');
+        // const container = document.getElementById('logo');
 
-        // Criação da cena, câmera e renderizador
-        container.style.borderRadius = '30px'
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+        // // Criação da cena, câmera e renderizador
+        // container.style.borderRadius = '30px'
+        // const scene = new THREE.Scene();
+        // const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        // const renderer = new THREE.WebGLRenderer();
+        // renderer.setSize(container.clientWidth, container.clientHeight);
+        // container.appendChild(renderer.domElement);
 
-        // Adicionando uma luz
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(1, 1, 1).normalize();
-        scene.add(light);
+        // // Adicionando uma luz
+        // const light = new THREE.DirectionalLight(0xffffff, 1);
+        // light.position.set(1, 1, 1).normalize();
+        // scene.add(light);
 
-        // Variável para armazenar o modelo carregado
-        let model;
+        // // Variável para armazenar o modelo carregado
+        // let model;
 
-        // Carregando o arquivo .glb
-        const loader = new THREE.GLTFLoader();
-        loader.load('logo.glb', function (gltf) {
-            model = gltf.scene;
-            model.position.set(0, 0, 0); // Certifique-se de que o modelo esteja centrado
-            scene.add(model);
-            animate();
-        }, undefined, function (error) {
-            console.error(error);
-        });
+        // // Carregando o arquivo .glb
+        // const loader = new THREE.GLTFLoader();
+        // loader.load('logo.glb', function (gltf) {
+        //     model = gltf.scene;
+        //     model.position.set(0, 0, 0); // Certifique-se de que o modelo esteja centrado
+        //     scene.add(model);
+        //     // animate();
+        //     renderer.render(scene, camera);
+        // }, undefined, function (error) {
+        //     console.error(error);
+        // });
 
 
-        // Posicionando a câmera
-        camera.position.z = 50;
-        camera.position.y = 15; // Ajusta a posição vertical da câmera (mova para cima)
+        // // Posicionando a câmera
+        // camera.position.z = 50;
+        // camera.position.y = 15; // Ajusta a posição vertical da câmera (mova para cima)
 
-        // Função de animação
-        function animate() {
-            requestAnimationFrame(animate);
+        // // Função de animação
+        // function animate() {
+        //     requestAnimationFrame(animate);
 
-            // Rodando o modelo se estiver carregado
-            if (model) {
-                model.rotation.y += 0.01; // Ajuste a velocidade da rotação conforme necessário
-            }
+        //     // Rodando o modelo se estiver carregado
+        //     if (model) {
+        //         model.rotation.y += 0.01; // Ajuste a velocidade da rotação conforme necessário
+        //     }
 
-            renderer.render(scene, camera);
-        }
+        //     renderer.render(scene, camera);
+        // }
 
-        // Ajustando a renderização quando a janela é redimensionada
-        window.addEventListener('resize', function () {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        });
+        // // Ajustando a renderização quando a janela é redimensionada
+        // window.addEventListener('resize', function () {
+        //     camera.aspect = container.clientWidth / container.clientHeight;
+        //     camera.updateProjectionMatrix();
+        //     renderer.setSize(container.clientWidth, container.clientHeight);
+        // });
         </script>
 </body>
 </html>
