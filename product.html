@@ -333,12 +333,19 @@
             return url.searchParams.get(name);
         }
 
+        function backToHome () {
+            window.location.href = "index.html#most";
+        }
+
         const paramValue = getParameterByName('param');
+
+        if(!paramValue) backToHome();
 
         const productIndex = isNaN(paramValue) ? 1 : paramValue;
 
         const product = products.find((e, i) => i == productIndex );
 
+        if(!product) backToHome();
 
         const nameElement = document.getElementById('name');
         nameElement.innerHTML = product.name;
